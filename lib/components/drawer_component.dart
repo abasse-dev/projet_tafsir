@@ -17,7 +17,7 @@ class DrawerComponent extends StatelessWidget {
               children: [
                 CircleAvatar(
                   backgroundImage: AssetImage("images/youssouf1.jpg"),
-                  radius:radius/10,
+                  radius: radius / 10,
                 ),
                 SizedBox(
                   height: 10.0,
@@ -43,7 +43,9 @@ class DrawerComponent extends StatelessWidget {
             Icons.cloud_download,
             color: colorAmber,
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.popAndPushNamed(context, "/download");
+          },
         ),
         ListTile(
           title: Text(
@@ -54,7 +56,9 @@ class DrawerComponent extends StatelessWidget {
             Icons.music_note,
             color: colorAmber,
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.popAndPushNamed(context, "/");
+          },
         ),
         Divider(
           color: colorAmber,
