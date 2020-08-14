@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projet_tafsir/constant/constant.dart';
+import 'package:projet_tafsir/screens/download_screen.dart';
 
 import 'screens/home_screen.dart';
 
@@ -18,7 +19,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: colorAmber,
         accentColor: accentColor
       ),
-      home: Home(),
+      initialRoute: "/",
+      routes: {
+        "/":(context)=>Home(),
+        "/download":(context)=>DownloadScreen()
+      },
     );
   }
 }
