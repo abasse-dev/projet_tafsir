@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "655929129289",
+    "firebase_url": "https://applicationyoussouf.firebaseio.com",
+    "project_id": "applicationyoussouf",
+    "storage_bucket": "applicationyoussouf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655929129289:android:bb3c7183fe42711fa80298",
+        "android_client_info": {
+          "package_name": "com.android.traore.administrator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655929129289-csfv72rsfisr4e1ne264lc1aaem6as2l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW-X42XzwCk4B9y0eOzrzrRcOb4T0b0FQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655929129289-csfv72rsfisr4e1ne264lc1aaem6as2l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655929129289:android:a67096a02e065789a80298",
+        "android_client_info": {
+          "package_name": "com.example.projet_tafsir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655929129289-csfv72rsfisr4e1ne264lc1aaem6as2l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW-X42XzwCk4B9y0eOzrzrRcOb4T0b0FQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655929129289-csfv72rsfisr4e1ne264lc1aaem6as2l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
