@@ -16,6 +16,9 @@ class _ActiveDownloadState extends State<ActiveDownload> {
   String termine = '';
   int _progress = 0;
   double _value = 0.0;
+  bool isdownloading = false;
+  bool isclicked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,43 +66,55 @@ class _ActiveDownloadState extends State<ActiveDownload> {
             ),
             GestureDetector(
               child: Text(
-                'Telecharger',
-                style:
-                    TextStyle(color: accentColor, fontWeight: FontWeight.bold),
+                'Télécharger',
+                style: TextStyle(
+                    color: isdownloading ? colorGreen : accentColor,
+                    fontWeight: FontWeight.bold),
               ),
               onTap: () async {
-                var dir = await getExternalStorageDirectory();
-                var dio = Dio();
-                if (!await getSharedPreferences(widget.titre)) {
-                  dio
-                      .download(
-                        widget.path,
-                        '${dir.path}/TAFSIR/${widget.titre}.amr',
-                        onReceiveProgress: (count, total) {
-                          var progress = count / total;
+              
+                if (!isclicked) {
+                    isclicked = true;
+                  isdownloading = true;
+                  var dir = await getExternalStorageDirectory();
+                  var dio = Dio();
+                  if (!await getSharedPreferences(widget.titre)) {
+                    dio
+                        .download(
+                          widget.path,
+                          '${dir.path}/TAFSIR/${widget.titre}.amr',
+                          onReceiveProgress: (count, total) {
+                            var progress = count / total;
 
-                          setState(() {
-                            _progress = (progress * 100).floor();
-                            _value = progress.toDouble();
-                          });
+                            setState(() {
+                              _progress = (progress * 100).floor();
+                              _value = progress.toDouble();
+                            });
 
-                          if (count == total) {
-                            termine = 'Terminé avec succès !!';
-                          }
-                        },
-                      )
-                      .then((value) => setSharedPreferences(widget.titre))
-                      .catchError((error) {
-                        var file =
-                            File('${dir.path}/TAFSIR/${widget.titre}.amr');
-                        file.deleteSync();
-                      });
-                } else {
-                  setState(() {
-                    _value = 1;
-                    _progress = 100;
-                    termine = 'déjà téléchargé';
-                  });
+                            if (count == total) {
+                              termine = 'Terminé avec succès !!';
+
+                              isdownloading = false;
+                            }
+                          },
+                        )
+                        .then((value) => setSharedPreferences(widget.titre))
+                        .catchError((error) {
+                          var file =
+                              File('${dir.path}/TAFSIR/${widget.titre}.amr');
+                          file.deleteSync();
+                        })
+                        .catchError((error) => Text(
+                              'Vérifier votre connexion internet',
+                              style: TextStyle(color: colorRed),
+                            ));
+                  } else {
+                    setState(() {
+                      _value = 1;
+                      _progress = 100;
+                      termine = 'déjà téléchargé';
+                    });
+                  }
                 }
               },
             ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projet_tafsir/components/drawer_component.dart';
 import 'package:projet_tafsir/constant/constant.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:projet_tafsir/data/shared_preferences.dart';
+
 import 'package:projet_tafsir/screens/active_downloaded.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
