@@ -20,12 +20,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: colorAmber,
         accentColor: accentColor
       ),
-      initialRoute: "/activeDownload",
+      initialRoute: "/",
       routes: {
         "/":(context)=>Home(),
         "/download":(context)=>DownloadScreen(),
 
-        "/activeDownload":(context)=>ActiveDownload(),
+        
       },
     );
   }

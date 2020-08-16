@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projet_tafsir/components/drawer_component.dart';
 import 'package:projet_tafsir/constant/constant.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:projet_tafsir/screens/active_downloaded.dart';
 
 class DownloadScreen extends StatefulWidget {
   @override
@@ -45,14 +46,18 @@ class _DownloadScreenState extends State<DownloadScreen> {
                       .map((document) => ListTile(
                             title: Text(
                               'Tafsir ${document['titre']}',
-                              style: TextStyle(color: accentColor,fontWeight: FontWeight.bold),
-                              
+                              style: TextStyle(
+                                  color: accentColor,
+                                  fontWeight: FontWeight.bold),
                             ),
                             leading: Icon(
                               Icons.file_download,
                               color: accentColor,
                             ),
-                            onTap: (){},
+                            onTap: () {
+                              Navigator.push(
+                                  context, MaterialPageRoute(builder: (context)=>ActiveDownload(titre: document['titre'],path: document['path'],)));
+                            },
                           ))
                       .toList(),
                 );

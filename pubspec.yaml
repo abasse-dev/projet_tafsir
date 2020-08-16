@@ -21,6 +21,9 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  dio: ^3.0.10
+  path_provider: ^1.6.11
+  shared_preferences: ^0.5.8
   cloud_firestore: ^0.13.7
   flutter:
     sdk: flutter
