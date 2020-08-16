@@ -44,7 +44,8 @@ class DrawerComponent extends StatelessWidget {
             color: colorAmber,
           ),
           onTap: () {
-            Navigator.popAndPushNamed(context, "/download");
+      
+             Navigator.pushNamedAndRemoveUntil(context, '/download', (route) => false);
           },
         ),
         ListTile(
@@ -89,4 +90,6 @@ class DrawerComponent extends StatelessWidget {
       ],
     ));
   }
+
+  
 }
