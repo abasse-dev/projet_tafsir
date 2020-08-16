@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
     await player.stop();
     try {
       if (_listTafsir[0] == 'télécharger tafsir') return;
-      await player.play(path, isLocal: true);
+      await player.play(path, isLocal: true,stayAwake: true);
     } on Exception catch (e) {
       print(e.toString());
     }

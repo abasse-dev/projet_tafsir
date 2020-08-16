@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projet_tafsir/constant/constant.dart';
-import 'package:projet_tafsir/screens/active_downloaded.dart';
+import 'package:flutter/services.dart';
 import 'package:projet_tafsir/screens/download_screen.dart';
 
 import 'screens/home_screen.dart';
@@ -9,27 +9,19 @@ void main(List<String> args) {
   runApp(MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
       title: "Application Tafsir",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        
-        primarySwatch: colorAmber,
-        accentColor: accentColor
-      ),
+      theme: ThemeData(primarySwatch: colorAmber, accentColor: accentColor),
       initialRoute: "/",
       routes: {
-        "/":(context)=>Home(),
-        "/download":(context)=>DownloadScreen(),
-
-        
+        "/": (context) => Home(),
+        "/download": (context) => DownloadScreen(),
       },
     );
   }
 }
-
-
