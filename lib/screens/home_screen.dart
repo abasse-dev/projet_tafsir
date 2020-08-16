@@ -23,17 +23,25 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
+      backgroundColor: Colors.white12,
       drawer: DrawerComponent(),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+             SizedBox(
+              height: hauter / 30,
+            ),
             Center(
-              child: Image(
-                image: AssetImage("images/youssouf1.jpg"),
-                height: hauter / 2,
-                width: larger / 2,
+              child: CircleAvatar(
+                backgroundImage: AssetImage("images/youssouf1.jpg"),
+              //  height: hauter / 2,
+              //  width: larger / 2,
+              radius: larger/2.5,
               ),
+            ),
+             SizedBox(
+              height: hauter / 35,
             ),
             Text(
               "Cheikh El Hadj Youssoufou OUEDRAOGO",
@@ -43,7 +51,7 @@ class _HomeState extends State<Home> {
                   fontStyle: FontStyle.italic),
             ),
             SizedBox(
-              height: hauter / 20,
+              height: hauter / 25,
             ),
             Text(
               "Tafsir Assise 001",
@@ -105,7 +113,7 @@ class _HomeState extends State<Home> {
               ],
             ),
             SizedBox(
-              height: hauter / 20,
+              height: hauter / 40,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

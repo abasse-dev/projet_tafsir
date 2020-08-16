@@ -57,7 +57,7 @@ class DrawerComponent extends StatelessWidget {
             color: colorAmber,
           ),
           onTap: () {
-            Navigator.popAndPushNamed(context, "/");
+            Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
           },
         ),
         Divider(
