@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
     await player.stop();
     try {
       if (_listTafsir[0] == 'télécharger tafsir') return;
-      await player.play(path, isLocal: true,stayAwake: true);
+      await player.play(path, isLocal: true, stayAwake: true);
     } on Exception catch (e) {
       print(e.toString());
     }
@@ -124,7 +124,9 @@ class _HomeState extends State<Home> {
       if (e.path.contains('Assise')) listTafsir.add(e.path);
     }).toList();
     setState(() {
-       _listTafsir = listTafsir;
+      listTafsir.length == 0
+          ? _listTafsir = ['télécharger tafsir']
+          : _listTafsir = listTafsir;
       _listTafsir.sort((a, b) => a.compareTo(b));
     });
   }
