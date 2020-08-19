@@ -30,7 +30,6 @@ class _AproposState extends State<Apropos> {
                     TextStyle(color: colorWhite, fontStyle: FontStyle.italic))
           ]),
         ),
-        backgroundColor: Colors.white38,
         body: TabBarView(children: [Cheikh(), AppPropo()]),
       ),
     );
@@ -77,9 +76,42 @@ class _CheikhState extends State<Cheikh> {
   }
 }
 
-class AppPropo extends StatelessWidget {
+class AppPropo extends StatefulWidget {
+  @override
+  _AppPropoState createState() => _AppPropoState();
+}
+
+class _AppPropoState extends State<AppPropo> {
+  String biographie = "images/about.pdf";
+  PDFDocument _doc;
+  bool _loading;
+  initPdf() async {
+    setState(() {
+      _loading = true;
+    });
+    final doc = await PDFDocument.fromAsset(biographie);
+    setState(() {
+      _doc = doc;
+      _loading = false;
+    });
+  }
+
+  @override
+  void initState() {
+    initPdf();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return _loading
+        ? Center(
+            child: CircularProgressIndicator(),
+          )
+        : PDFViewer(
+            document: _doc,
+            showPicker: false,
+            showIndicator: false,
+          );
   }
 }

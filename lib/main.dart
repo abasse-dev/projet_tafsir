@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: "Application Tafsir",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: colorAmber, accentColor: accentColor),
-      initialRoute: "/apropo",
+      initialRoute: "/",
       routes: {
         "/": (context) => Home(),
         "/download": (context) => DownloadScreen(),
