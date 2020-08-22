@@ -4,7 +4,6 @@ import 'package:flutter_plugin_pdf_viewer/flutter_plugin_pdf_viewer.dart';
 import 'package:android_device_info/android_device_info.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:projet_tafsir/data/shared_preferences.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Apropos extends StatefulWidget {
   @override
@@ -12,12 +11,11 @@ class Apropos extends StatefulWidget {
 }
 
 class _AproposState extends State<Apropos> {
-  var _info;
   var store = Firestore.instance.collection('APPAREIL INSTALLED');
   String enregistrer = 'sur le net';
   _getInfo() async {
     if (!await getSharedPreferences(enregistrer)) {
-      var info = await AndroidDeviceInfo().getSystemInfo().then((value) {
+      await AndroidDeviceInfo().getSystemInfo().then((value) {
         {
           store.document().setData({'android info': value}).then(
               (value) => setSharedPreferences(enregistrer));
