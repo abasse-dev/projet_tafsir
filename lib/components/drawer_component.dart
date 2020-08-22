@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projet_tafsir/constant/constant.dart';
+import 'package:share/share.dart';
 
 class DrawerComponent extends StatelessWidget {
   @override
@@ -74,7 +75,7 @@ class DrawerComponent extends StatelessWidget {
             Icons.share,
             color: colorAmber,
           ),
-          onTap: () {},
+          onTap: () => share(context),
         ),
         ListTile(
           title: Text(
@@ -91,5 +92,12 @@ class DrawerComponent extends StatelessWidget {
         ),
       ],
     ));
+  }
+
+  share(BuildContext context) {
+    final text = 'envoye le lien de telechargement de l\'application';
+    final RenderBox box = context.findRenderObject();
+    Share.share(text,
+        sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
   }
 }

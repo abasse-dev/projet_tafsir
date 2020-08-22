@@ -6,10 +6,17 @@
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
          <uses-permission android:name="android.permission.WAKE_LOCK" />
+         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Network Info -->
+<uses-permission android:name="android.permission.INTERNET" /> <!-- Network Info -->
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- WiFI Info -->
+<uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- SIM Info / Phone # -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Location Info -->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Location Info -->
+
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="projet_tafsir"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

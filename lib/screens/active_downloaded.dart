@@ -72,9 +72,8 @@ class _ActiveDownloadState extends State<ActiveDownload> {
                     fontWeight: FontWeight.bold),
               ),
               onTap: () async {
-              
                 if (!isclicked) {
-                    isclicked = true;
+                  isclicked = true;
                   isdownloading = true;
                   var dir = await getExternalStorageDirectory();
                   var dio = Dio();

@@ -18,7 +18,7 @@ class _DownloadScreenState extends State<DownloadScreen> {
   initList() async {
     var pref = await SharedPreferences.getInstance();
     setState(() {
-     _downloadList =  pref.getKeys();
+      _downloadList = pref.getKeys();
     });
   }
 
@@ -70,9 +70,20 @@ class _DownloadScreenState extends State<DownloadScreen> {
                       title: Text(
                         'Tafsir ${document['titre']}',
                         style: TextStyle(
-                            color: _downloadList.contains(titreh)?colorGreen:accentColor, fontWeight: FontWeight.bold),
+                            color: _downloadList.contains(titreh)
+                                ? colorGreen
+                                : accentColor,
+                            fontWeight: FontWeight.bold),
                       ),
-                     leading: _downloadList.contains(titreh)?Icon(Icons.done,color: colorGreen,):Icon(Icons.file_download,color: accentColor,),
+                      leading: _downloadList.contains(titreh)
+                          ? Icon(
+                              Icons.done,
+                              color: colorGreen,
+                            )
+                          : Icon(
+                              Icons.file_download,
+                              color: accentColor,
+                            ),
                       onTap: () {
                         Navigator.push(
                             context,
