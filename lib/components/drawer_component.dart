@@ -96,8 +96,11 @@ class DrawerComponent extends StatelessWidget {
 
   share(BuildContext context) {
     final text = 'envoye le lien de telechargement de l\'application';
+    final String object =
+        "https://drive.google.com/file/d/1Y6lBmTe2mXH-p8fll1q_bwcn7knJtWIX/view?usp=sharing";
     final RenderBox box = context.findRenderObject();
-    Share.share(text,
+    Share.share(object,
+        subject: object,
         sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
   }
 }
